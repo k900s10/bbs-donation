@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
+    "@vercel/analytics": "^2.0.1",
     "bun-plugin-tailwind": "^0.1.2",
     "chart.js": "^4.5.1",
     "react": "^19",

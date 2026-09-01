@@ -1,4 +1,5 @@
 import "./index.css";
+import { Analytics } from "@vercel/analytics/react";
 import { useDonationData } from "./lib/data";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
@@ -41,6 +42,7 @@ export function App() {
         <QrisCta />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }
