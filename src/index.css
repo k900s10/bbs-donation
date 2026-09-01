@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed m-0;
+  }
+}
+
+/* Chart canvas sizing (ported from the original infographic template) */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  max-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    height: 460px;
+  }
+}
