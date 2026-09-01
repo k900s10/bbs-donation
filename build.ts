@@ -16,6 +16,15 @@ const result = await Bun.build({
   sourcemap: "linked",
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
+    // Explicitly inline BUN_PUBLIC_* vars so the browser bundle never contains
+    // a live `process.env.*` reference (which crashes with ReferenceError).
+    // Falls back to "" when the var is absent (e.g. Vercel build without env vars set).
+    "process.env.BUN_PUBLIC_SUPABASE_URL": JSON.stringify(
+      process.env.BUN_PUBLIC_SUPABASE_URL ?? "",
+    ),
+    "process.env.BUN_PUBLIC_SUPABASE_PUBLISHABLE_KEY": JSON.stringify(
+      process.env.BUN_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "",
+    ),
   },
 });
 
