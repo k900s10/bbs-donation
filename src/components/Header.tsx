@@ -1,4 +1,13 @@
 export function Header() {
+  const scrollToDonation = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById("qris-donation");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      history.pushState(null, "", "#qris-donation");
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -12,11 +21,13 @@ export function Header() {
         </div>
         <a
           href="#qris-donation"
-          className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm"
+          onClick={scrollToDonation}
+          className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm cursor-pointer"
         >
-          Cek Dampak Donasi ➔
+          Donasi Sekarang ➔
         </a>
       </div>
     </header>
   );
 }
+

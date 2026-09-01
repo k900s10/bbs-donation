@@ -7,7 +7,7 @@ export function HistorySection({ audits }: { audits: MonthlyAudit[] }) {
   const tableRef = useRef<HTMLDivElement>(null);
 
   const scrollToTable = () => {
-    tableRef.current?.scrollIntoView({ behavior: "smooth" });
+    tableRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   return (
